@@ -7,7 +7,6 @@ NullMail Sender es una aplicación web construida con [Astro](https://astro.buil
 - **Simulación de envío de correos:** El formulario valida y simula el envío de emails, mostrando mensajes de éxito y errores.
 - **Validación de campos:** Verifica que el correo electrónico sea válido, el asunto tenga al menos 5 caracteres y el mensaje mínimo 10 caracteres.
 - **Interfaz simple y directa:** Solo los campos necesarios: destinatario, copia (CC), asunto y mensaje.
-- **Diseño responsivo:** Adaptado para diferentes tamaños de pantalla.
 - **Estilos modernos:** Utiliza TailwindCSS y fuentes personalizadas.
 
 ## 📁 Estructura del Proyecto
