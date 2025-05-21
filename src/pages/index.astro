@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import StandardField from "../components/StandardField.astro";
 import MessageField from "../components/MessageField.astro";
 import FormButton from "../components/FormButton.astro";
+import FeatureCard from "../components/FeatureCard.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -14,7 +15,71 @@ import FormButton from "../components/FormButton.astro";
     class="w-full h-full flex flex-row bg-[url('/Hero.png')] bg-contain bg-no-repeat bg-left bg-fixed bg-[#141414]"
   >
     <!-- Feature Sections -->
-    <section class="w-full"></section>
+    <section class="w-full px-10 justify-center items-center flex">
+      <article
+        class="flex flex-col gap-2 items-center justify-center bg-content-background border-4 border-tertiary-background rounded-4xl p-3"
+      >
+        <ul class="text-white flex flex-col gap-4">
+          <FeatureCard
+            title="Simula el envió de correos"
+            description="El formulario utiliza una serie de validaciones para asegurar que el correo electrónico sea válido y que el mensaje cumpla con los requisitos mínimos de longitud."
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-send-icon lucide-send h-full text-icon size-10"
+              ><path
+                d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"
+              ></path><path d="m21.854 2.147-10.94 10.939"></path></svg
+            >
+          </FeatureCard>
+
+          <FeatureCard
+            title="Validación de campos"
+            description="El formulario valida los campos de entrada para asegurarse de que el correo electrónico sea válido y que el mensaje cumpla con los requisitos mínimos de longitud."
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-at-sign-icon lucide-at-sign text-icon size-10"
+              ><circle cx="12" cy="12" r="4"></circle><path
+                d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"></path></svg
+            >
+          </FeatureCard>
+
+          <FeatureCard
+            title="Interfaz simple y directa"
+            description="Formulario optimizado para ir al grano: destinatario, asunto y mensaje. Sin pasos innecesarios ni configuraciones extrañas."
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-layers2-icon lucide-layers-2 text-icon size-10"
+              ><path
+                d="M13 13.74a2 2 0 0 1-2 0L2.5 8.87a1 1 0 0 1 0-1.74L11 2.26a2 2 0 0 1 2 0l8.5 4.87a1 1 0 0 1 0 1.74z"
+              ></path><path
+                d="m20 14.285 1.5.845a1 1 0 0 1 0 1.74L13 21.74a2 2 0 0 1-2 0l-8.5-4.87a1 1 0 0 1 0-1.74l1.5-.845"
+              ></path></svg
+            >
+          </FeatureCard>
+        </ul>
+      </article>
+    </section>
 
     <!-- Form Section -->
     <section
@@ -407,6 +472,10 @@ import FormButton from "../components/FormButton.astro";
       emailBody.message = "";
       // Reset form
       form.reset();
+      // Remove alerts
+      fields.forEach((field) => {
+        cleanAlert(field.parentElement);
+      });
       checkValues();
     });
 
