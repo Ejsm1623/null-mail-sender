@@ -1,48 +1,92 @@
-# Astro Starter Kit: Basics
+# NullMail Sender
 
-```sh
-npm create astro@latest -- --template basics
+NullMail Sender es una aplicación web construida con [Astro](https://astro.build/) que simula el envío de correos electrónicos a través de un formulario simple, directo y validado. Ideal para pruebas de UI, demostraciones o como base para proyectos de mailing.
+
+## 🚀 Características
+
+- **Simulación de envío de correos:** El formulario valida y simula el envío de emails, mostrando mensajes de éxito y errores.
+- **Validación de campos:** Verifica que el correo electrónico sea válido, el asunto tenga al menos 5 caracteres y el mensaje mínimo 10 caracteres.
+- **Interfaz simple y directa:** Solo los campos necesarios: destinatario, copia (CC), asunto y mensaje.
+- **Diseño responsivo:** Adaptado para diferentes tamaños de pantalla.
+- **Estilos modernos:** Utiliza TailwindCSS y fuentes personalizadas.
+
+## 📁 Estructura del Proyecto
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   ├── Hero.png
+│   ├── MailPattern.png
+│   └── fonts/
 ├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── FeatureCard.astro
+│   │   ├── FormButton.astro
+│   │   ├── MessageField.astro
+│   │   └── StandardField.astro
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+├── package.json
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧑‍💻 Instalación y uso
 
-## 🧞 Commands
+1. **Clona el repositorio:**
 
-All commands are run from the root of the project, from a terminal:
+   ```sh
+   git clone https://github.com/tu-usuario/null-mail-sender.git
+   cd null-mail-sender
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+2. **Instala las dependencias:**
 
-## 👀 Want to learn more?
+   ```sh
+   npm install
+   ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+3. **Inicia el servidor de desarrollo:**
+
+   ```sh
+   npm run dev
+   ```
+
+   El sitio estará disponible en [http://localhost:4321](http://localhost:4321).
+
+4. **Compila para producción:**
+
+   ```sh
+   npm run build
+   ```
+
+5. **Previsualiza la build:**
+
+   ```sh
+   npm run preview
+   ```
+
+## 📝 Personalización
+
+- Puedes modificar los estilos en [`src/styles/global.css`](src/styles/global.css).
+- Los componentes del formulario se encuentran en [`src/components/`](src/components/).
+- La lógica de validación y simulación está en [`src/pages/index.astro`](src/pages/index.astro).
+
+## 📦 Tecnologías utilizadas
+
+- [Astro](https://astro.build/)
+- [TailwindCSS](https://tailwindcss.com/)
+- HTML, CSS, JavaScript
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
+---
+
+¡Disfruta usando NullMail Sender! Si tienes sugerencias o encuentras algún problema, no dudes en abrir un issue o un pull request.
