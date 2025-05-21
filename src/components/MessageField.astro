@@ -1,0 +1,27 @@
+---
+interface Props {
+  placeholder: string;
+  label: string;
+  name: string;
+  id: string;
+}
+
+const { placeholder, label, name, id } = Astro.props;
+---
+
+<div class="w-full space-y-2">
+  <div class="flex flex-row gap-2 items-center text-primary-text">
+    <slot />
+    <label for={name} class="font-bold text-text block">{label}</label>
+  </div>
+  <textarea
+    rows="2 "
+    required
+    name={name}
+    maxlength="500"
+    id={id}
+    placeholder={placeholder}
+    class="bg-surface p-3 m-0  text-sm w-full rounded-md placeholder:text-text-light placeholder:font-light placeholder:text-sm resize-none
+    overflow-hidden"
+  ></textarea>
+</div>

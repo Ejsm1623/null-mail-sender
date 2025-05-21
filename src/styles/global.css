@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Raleway-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway Italic";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Raleway-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
+@theme {
+  --color-primary: #9747ff;
+  --color-icon: #fff;
+  --color-primary-text: #f2f3f4;
+  --color-surface: #f5f5f5;
+  --color-primary-background: #0a0a0a;
+  --color-secondary-background: #111111;
+  --color-tertiary-background: #141414;
+  --color-content-background: #1f1f1f;
+}

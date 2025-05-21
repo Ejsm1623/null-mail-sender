@@ -1,11 +1,461 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import StandardField from "../components/StandardField.astro";
+import MessageField from "../components/MessageField.astro";
+import FormButton from "../components/FormButton.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+  <main
+    class="w-full h-full flex flex-row bg-[url('/Hero.png')] bg-contain bg-no-repeat bg-left bg-fixed bg-[#141414]"
+  >
+    <!-- Feature Sections -->
+    <section class="w-full"></section>
+
+    <!-- Form Section -->
+    <section
+      class="w-full border-primary bg-[#141414] border-x-4 px-2 mr-10 flex flex-col justify-center"
+    >
+      <div class="bg-[#1F1F1F] w-full h-full px-3">
+        <div
+          class="bg-[#292929] px-5 h-full flex justify-center gap-8 flex-col"
+        >
+          <!-- Header of Section -->
+          <article class="flex flex-col gap-2 text-primary-text">
+            <!-- Logo -->
+            <div
+              class="flex flex-row items-center gap-2 text-primary justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-mailbox-icon lucide-mailbox size-16"
+                ><path
+                  d="M22 17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5C2 7 4 5 6.5 5H18c2.2 0 4 1.8 4 4v8Z"
+                ></path><polyline points="15,9 18,9 18,11"></polyline><path
+                  d="M6.5 5C9 5 11 7 11 9.5V17a2 2 0 0 1-2 2"></path><line
+                  x1="6"
+                  x2="7"
+                  y1="10"
+                  y2="10"></line></svg
+              >
+              <h1 class="text-primary font-extrabold text-5xl text-center">
+                NullMaill.
+              </h1>
+            </div>
+          </article>
+
+          <!-- Form -->
+          <form id="form" action="" class="flex flex-col gap-3 w-full">
+            <!-- Email -->
+            <StandardField
+              placeholder="ejemplo@correo.com"
+              label="Para"
+              name="destinatario"
+              id="addressee"
+              type="email"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-user-round-pen-icon lucide-user-round-pen text-icon size-5"
+                ><path d="M2 21a8 8 0 0 1 10.821-7.487"></path><path
+                  d="M21.378 16.626a1 1 0 0 0-3.004-3.004l-4.01 4.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"
+                ></path><circle cx="10" cy="8" r="5"></circle></svg
+              >
+            </StandardField>
+            <!-- Email CC -->
+            <StandardField
+              placeholder="ejemplo2@correo.com"
+              label="CC Para"
+              name="ccRecipient"
+              id="withCopy"
+              type="email"
+              requiredValue={false}
+            />
+            <!-- Subject -->
+            <StandardField
+              placeholder="Ingrese el asunto del correo"
+              label="Asunto"
+              name="asunto"
+              id="subject"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-pencil-line-icon lucide-pencil-line text-icon size-5"
+                ><path d="M12 20h9"></path><path
+                  d="M16.376 3.622a1 1 0 0 1 3.002 3.002L7.368 18.635a2 2 0 0 1-.855.506l-2.872.838a.5.5 0 0 1-.62-.62l.838-2.872a2 2 0 0 1 .506-.854z"
+                ></path><path d="m15 5 3 3"></path></svg
+              >
+            </StandardField>
+            <!-- Message -->
+            <MessageField
+              placeholder="Ingrese el mensaje del correo"
+              label="Mensaje"
+              name="mensaje"
+              id="message"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-text-icon lucide-text text-icon size-5"
+                ><path d="M15 18H3"></path><path d="M17 6H3"></path><path
+                  d="M21 12H3"></path></svg
+              >
+            </MessageField>
+            <div class="flex flex-row gap-2">
+              <!-- Submit Button -->
+              <FormButton
+                type="submit"
+                text="Enviar correo de prueba"
+                color="bg-primary"
+              />
+              <!-- Reset Button -->
+              <FormButton
+                type="button"
+                text="Limpiar campos"
+                color="bg-secondary-background"
+                disabled={false}
+              />
+            </div>
+          </form>
+          <div id="spinner" class="hidden justify-center">
+            <div class="spinner">
+              <div class="rect1"></div>
+              <div class="rect2"></div>
+              <div class="rect3"></div>
+              <div class="rect4"></div>
+              <div class="rect5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- <footer></footer> -->
+
+  <style>
+    .spinner {
+      width: 50px;
+      height: 40px;
+      text-align: center;
+      font-size: 10px;
+    }
+
+    .spinner > div {
+      background-color: #cecece;
+      height: 100%;
+      width: 6px;
+      display: inline-block;
+
+      -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+      animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    }
+
+    .spinner .rect2 {
+      -webkit-animation-delay: -1.1s;
+      animation-delay: -1.1s;
+    }
+
+    .spinner .rect3 {
+      -webkit-animation-delay: -1s;
+      animation-delay: -1s;
+    }
+
+    .spinner .rect4 {
+      -webkit-animation-delay: -0.9s;
+      animation-delay: -0.9s;
+    }
+
+    .spinner .rect5 {
+      -webkit-animation-delay: -0.8s;
+      animation-delay: -0.8s;
+    }
+
+    @-webkit-keyframes sk-stretchdelay {
+      0%,
+      40%,
+      100% {
+        -webkit-transform: scaleY(0.4);
+      }
+      20% {
+        -webkit-transform: scaleY(1);
+      }
+    }
+
+    @keyframes sk-stretchdelay {
+      0%,
+      40%,
+      100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+      }
+      20% {
+        transform: scaleY(1);
+        -webkit-transform: scaleY(1);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .fade-in.show {
+      opacity: 1;
+    }
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  </style>
+
+  <!-- Event Handling -->
+  <script type="text/javascript">
+    // Object to store email data
+
+    const emailBody = {
+      addressee: "",
+      subject: "",
+      message: "",
+      withCopy: "",
+    };
+
+    // Fields selectors
+    const addreseeInput = document.getElementById("addressee");
+    const subjectInput = document.getElementById("subject");
+    const messageInput = document.getElementById("message");
+    const withCopyInput = document.getElementById("withCopy");
+
+    // Message Field Conditions
+    const maxLines = 2;
+    messageInput.addEventListener("keydown", function (event) {
+      const lines = messageInput.value.split("\n");
+      if (event.key === "Enter" && lines.length >= maxLines) {
+        event.preventDefault();
+      }
+    });
+
+    // Form Selector
+    const form = document.querySelector("form");
+    // Form Spinner
+    const spinner = document.querySelector("#spinner");
+    // Form Button Selector
+    const submitButton = document.querySelector("#form button[type='submit']");
+
+    // Grouping fields
+    const fields = [addreseeInput, subjectInput, messageInput, withCopyInput];
+
+    // Adding event listeners to each field
+    fields.forEach((field) => {
+      field?.addEventListener("input", validateField);
+    });
+
+    // Validate Function
+    // Check: Is field empty?
+    function validateField(event) {
+      if (event.target.value.trim() === "") {
+        showAlert(
+          `El campo ${event.target.name} está vacío. Por favor, rellenelo.`,
+          event.target.parentElement.toLowerCase()
+        );
+        // Disable submit button
+        emailBody[event.target.id] = "";
+        checkValues();
+        return;
+      }
+
+      // Checks
+      // Based on field/input ID
+      switch (event.target.id) {
+        // When field is "addressee"
+        case "addressee":
+          if (!validateEmail(event.target.value)) {
+            showAlert(
+              "Ingresa una dirección de correo válida.",
+              event.target.parentElement
+            );
+            emailBody[event.target.id] = "";
+            checkValues();
+            return;
+          }
+          break;
+        // When field is withCopy
+        case "withCopy":
+          if (event.target.value.length > 0) {
+            if (!validateEmail(event.target.value)) {
+              showAlert(
+                "Ingresa una dirección de correo válida.",
+                event.target.parentElement
+              );
+              emailBody[event.target.id] = "";
+              checkValues();
+              return;
+            }
+          }
+          break;
+        // When field is "subject"
+        case "subject":
+          if (event.target.value.length < 5) {
+            showAlert(
+              "El asunto debe tener mínimo 5 caracteres.",
+              event.target.parentElement
+            );
+            emailBody[event.target.id] = "";
+            checkValues();
+            return;
+          }
+          break;
+        // When field is "message"
+        case "message":
+          if (event.target.value.length < 10) {
+            showAlert(
+              "El mensaje debe tener mínimo 10 caracteres.",
+              event.target.parentElement
+            );
+            emailBody[event.target.id] = "";
+            checkValues();
+            return;
+          }
+          break;
+      }
+      // If field is valid, remove alert
+      cleanAlert(event.target.parentElement);
+
+      // Update inputs object
+      emailBody[event.target.id] = event.target.value.trim().toLowerCase();
+
+      // Check if all fields are filled
+      checkValues();
+    }
+
+    // Field Alert
+    function showAlert(message, reference) {
+      // Remove existing alert if any
+      cleanAlert(reference);
+
+      // Create alert
+      const alert = document.createElement("div");
+      alert.textContent = message || "Por favor, completa todos los campos.";
+      alert.classList.add("alert", "text-red-500", "text-sm", "text-left");
+
+      // Add error to DOM
+      reference.appendChild(alert);
+    }
+
+    // Clean Alerts
+    function cleanAlert(reference) {
+      // Remove alert if field is valid
+      const existingAlert = reference.querySelector(".alert");
+      if (existingAlert) {
+        existingAlert.remove();
+      }
+    }
+
+    // Validate Email
+    function validateEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const result = emailPattern.test(email);
+      return result;
+    }
+
+    function checkValues() {
+      if (
+        emailBody.addressee === "" ||
+        emailBody.subject === "" ||
+        emailBody.message === ""
+      ) {
+        // Disable submit button
+        submitButton.disabled = true;
+        return;
+      } //Enable submit button
+      submitButton.disabled = false;
+    }
+
+    // Reset Button
+    const resetButton = document.querySelector("#form button[type='button']");
+    resetButton?.addEventListener("click", function (e) {
+      // Clear emailBody object
+      e.preventDefault();
+
+      emailBody.addressee = "";
+      emailBody.subject = "";
+      emailBody.message = "";
+      // Reset form
+      form.reset();
+      checkValues();
+    });
+
+    // Form Submit Event
+    // Prevent default form submission
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      // Show spinner
+      spinner.classList.remove("hidden");
+      spinner.classList.add("flex");
+
+      // Hide spinner after 4 segundos
+      setTimeout(() => {
+        spinner.classList.add("hidden");
+        spinner.classList.remove("flex");
+
+        emailBody.addressee = "";
+        emailBody.subject = "";
+        emailBody.message = "";
+        // Reset form
+        form.reset();
+        checkValues();
+
+        // Show success message
+        const successMessage = document.createElement("div");
+        successMessage.textContent = "El correo se ha enviado correctamente.";
+        successMessage.classList.add(
+          "bg-green-700",
+          "rounded-md",
+          "p-2",
+          "w-full",
+          "font-bold",
+          "border-2",
+          "border-green-200",
+          "border-solid",
+          "text-white",
+          "text-sm",
+          "text-center"
+        );
+        form.appendChild(successMessage);
+
+        // Eliminar mensaje después de 3 segundos de forma segura
+        setTimeout(() => {
+          if (successMessage && successMessage.parentNode) {
+            successMessage.remove();
+          }
+        }, 3000);
+      }, 4000);
+    });
+  </script>
 </Layout>

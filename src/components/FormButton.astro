@@ -1,0 +1,19 @@
+---
+interface Props {
+  type: "submit" | "button";
+  text: string;
+  color: string;
+  opacity?: string;
+  disabled?: boolean | true;
+}
+
+const { type, text, color, disabled = true } = Astro.props;
+---
+
+<button
+  type={type}
+  disabled={disabled}
+  class={`text-surface font-bold py-3 px-4 min-h-11 w-full text-md rounded hover:saturate-50 transition-all duration-200 ease-in-out cursor-pointer ${color} disabled:opacity-50 disabled:pointer-events-none`}
+>
+  {text}
+</button>
